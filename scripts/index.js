@@ -44,36 +44,3 @@ closePopupButton.addEventListener('click', togglePopup);
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 formElement.addEventListener('submit', formSubmitHandler); 
-
-
-// openPopupButton.addEventListener('click', () => {
-//     overlayEl.classList.add('overlay_opened');
-// })
-
-// closePopupButton.addEventListener('click', () => {
-//     overlayEl.classList.remove('overlay_opened');
-// })
-
-
-// document.addEventListener('click', (event) => {
-
-//     if (event.target.classList.contains('info-item__edit-button')) {
-//         toggleOverlay();
-//     }
-
-//     if (event.target.classList.contains('popup__close-button')) {
-//         toggleOverlay();
-//     }
-// });
-
-
-
-// const likes = document.querySelectorAll('.card__like');
-
-// const toggleClass = (e) => {
-//     e.classList.toggle('card__like_active');
-// }
-
-// likes.addEventListener('click', (e) => {
-// debugger;    toggleClass(e.currentTarget);
-// })
