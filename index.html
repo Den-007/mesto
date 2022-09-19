@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="pages/index.css">
+</head>
+<body class="main">
+    <div class="page">
+       <header class="header">
+        <img src="images/Vector.png" alt="Логотип" class="logo">
+       </header>
+     
+<div class="Profile">
+    <div class="Avatar">
+        <img src="images/image.png" alt="Кусто" class="Kusto__image">
+    </div> 
+    <div class="Kusto">
+        <h2 class="Kusto__title">Жак-Ив Кусто</h2>
+
+        <button type="button" class="Kusto__edit-button button" aria-label="Редактировать"></button>
+
+        <p class="Kusto__text">Исследователь океана</p>
+    </div>
+   
+    <div class="Add-button button">
+        <img src="images/Plus.png" alt="Plus" class="Plus__image">
+    </div>
+  
+</div>
+<section class="Elements">
+    <article class="Element">
+        <img class="Element__image" src="images/kirill-pershin-1088404-unsplash.png" alt="Kar">
+        <div class="Element__texts">
+           <h2 class="Element__text">Карачаевск</h2>  
+           <img src="images/Vector (heard).png" alt="Heart" class="Heart__image button">
+        </div>
+     </article>
+     <article class="Element">
+        <img class="Element__image" src="images/kirill-pershin-1404681-unsplash.png" alt="Elb">
+        <div class="Element__texts">
+           <h2 class="Element__text">Гора Эльбрус</h2>
+           <img src="images/Vector (heard).png" alt="Heart" class="Heart__image button">  
+        </div>
+     </article>
+     <article class="Element">
+        <img class="Element__image" src="images/kirill-pershin-1556355-unsplash.png" alt="Dmb">
+        <div class="Element__texts">
+           <h2 class="Element__text">Домбай</h2> 
+           <img src="images/Vector (heard).png" alt="Heart" class="Heart__image button"> 
+        </div>
+     </article>
+     <article class="Element">
+        <img class="Element__image" src="images/kirill-pershin-1404681-unsplash.png" alt="Elb">
+        <div class="Element__texts">
+           <h2 class="Element__text">Гора Эльбрус</h2>
+           <img src="images/Vector (heard).png" alt="Heart" class="Heart__image button">  
+        </div>
+     </article>
+     <article class="Element">
+        <img class="Element__image" src="images/kirill-pershin-1556355-unsplash.png" alt="Dmb">
+        <div class="Element__texts">
+           <h2 class="Element__text">Домбай</h2>
+           <img src="images/Vector (heard).png" alt="Heart" class="Heart__image button"> 
+        </div>
+     </article>
+     <article class="Element">
+        <img class="Element__image" src="images/kirill-pershin-1088404-unsplash.png" alt="Kar">
+        <div class="Element__texts">
+           <h2 class="Element__text">Карачаевск</h2>
+           <img src="images/Vector (heard).png" alt="Heart" class="Heart__image button">  
+        </div>
+     </article>
+     </section>
+     <footer class="footer">
+      <p class="footer__copyright"> © 2020 Mesto Russia</p>
+     </footer>
+  </div>
+  
+   <section class="popup">
+      <div class="popup__container">
+         <form name="editForm" class="popup__form">
+         <h2 class="popup__title">Редактировать профиль</h2>
+         <input type="text" class="popup__input popup__inpyt_type-name" name="name" placeholder="Жак-Ив Кусто">
+         <input type="text" class="popup__input popup__inpyt_type-job" name="job" placeholder="Исследователь океана">
+         <button type="submit" class="popup__button-save" aria-label="Сохранить">Сохранить</button>
+      </form>
+      <button type="button" class="popup__close-button" aria-label="Закрыть"></button>
+      </div>
+      </section>
+      
+  <script src="scripts/index.js"></script>
+</div>
+</body>
+</html>
