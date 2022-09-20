@@ -1,11 +1,11 @@
-.Plus__image{
+.plus__image{
     width: 22px;
     height: 22px;
     margin: 14px 64px; 
 }
 
 @media screen and (max-width: 890px){
-    .Plus__image{
+    .plus__image{
         width: 16px;
         height: 16px;
         margin: 17px 133px;
