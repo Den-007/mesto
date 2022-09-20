@@ -1,9 +1,9 @@
-.Avatar{
+.Profile__info{
     margin-right: 30px;
  }
 
  @media screen and (max-width: 450px){
-    .Avatar{
+    .Profile__info{
     margin: 0;           
     }
     }
