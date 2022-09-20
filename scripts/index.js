@@ -6,8 +6,8 @@ let formElement = document.querySelector('.popup__form');// Воспользуй
 // Находим поля формы в DOM
 let nameInput = document.querySelector('.Kusto__title');// Воспользуйтесь инструментом .querySelector()
 let jobInput = document.querySelector('.Kusto__text');// Воспользуйтесь инструментом .querySelector()
-let newTextName = document.querySelector('.popup__inpyt_type-name');
-let newTextJob = document.querySelector('.popup__inpyt_type-job');
+let newTextName = document.querySelector('.popup__inpyt_type_name');
+let newTextJob = document.querySelector('.popup__inpyt_type_job');
 
 
 const togglePopup = () => {
