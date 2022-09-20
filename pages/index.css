@@ -6,8 +6,7 @@
 @import url("../blocks/footer/footer.css");
 @import url("../blocks/footer/__copyright/footer__copyright.css");
 @import url("../blocks/header/header.css");
-@import url("../blocks/Heart/Heart.css");
-@import url("../blocks/Heart/__image/Heart__image.css");
+@import url("../blocks/Element/__like/Element__like.css");
 @import url("../blocks/Kusto/Kusto.css");
 @import url("../blocks/Kusto/Kusto.css");
 @import url("../blocks/Kusto/__edit/Kusto__edit-button.css");
