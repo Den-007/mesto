@@ -15,8 +15,6 @@
 @import url("../blocks/Kusto/__title/Kusto__title.css");
 @import url("../blocks/main/main.css");
 @import url("../blocks/page/page.css");
-@import url("../blocks/Plus/Plus.css");
-@import url("../blocks/Plus/__image/plus__image.css");
 @import url("../blocks/popup/popup.css");
 @import url("../blocks/popup/__button/popup__button-save.css");
 @import url("../blocks/popup/__close/popup__close-button.css");
@@ -30,6 +28,7 @@
 @import url("../blocks/popup/_opened/popup_opened.css");
 @import url("../blocks/logo/logo.css");
 @import url("../blocks/Add-button/Add-button.css");
+@import url("../blocks/Add-button/__image/Add-button__image.css");
 
 
 
