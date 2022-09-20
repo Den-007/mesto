@@ -1,0 +1,9 @@
+.Avatar{
+    margin-right: 30px;
+ }
+
+ @media screen and (max-width: 450px){
+    .Avatar{
+    margin: 0;           
+    }
+    }

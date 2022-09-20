@@ -1,0 +1,15 @@
+.Element {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+@media screen and (max-width: 580px){
+    .Element{
+        max-width: 282px;
+        margin-left: auto;
+        margin-right: auto;
+               
+    }
+    }
