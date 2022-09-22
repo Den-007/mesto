@@ -1,4 +1,4 @@
-    .kusto__button-add{
+    .profile__button-add{
     background: url(../../../images/Plus.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -11,12 +11,12 @@
     padding: 0;
     }
  
-    .kusto__button-add:hover{
+    .profile__button-add:hover{
         opacity: 0.6;
         transition: 0.6s;
     }
     @media screen and (max-width: 650px){
-    .kusto__button-add {
+    .profile__button-add {
         margin-top: 36px;
         background-size: 16px;
         min-width: 282px;
