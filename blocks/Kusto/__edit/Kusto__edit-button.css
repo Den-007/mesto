@@ -1,4 +1,4 @@
-.Kusto__edit-button {
+.kusto__edit-button {
     background: url(../../../images/Vector\ 2.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -12,20 +12,13 @@
 }
 
 @media screen and (max-width: 450px){
-    .Kusto__edit-button {
+    .kusto__edit-button {
         min-width: 18px;
         min-height: 18px;
         background-size: 8px;       
     }
     }
-
-    @media screen and (max-width: 350px){
-        .pean{
-      margin-top: 0px;
-      position: absolute;
-      top: 267px;
-      right: 33px;
-      width: 18px;
-      height: 18px;
-    }
+    .kusto__edit-button:hover{
+        opacity: 0.6;
+        transition: 0.6s;
     }

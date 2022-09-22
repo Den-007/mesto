@@ -1,3 +1,5 @@
+@import url("../vendor/normalize.css");
+@import url("../vendor/fonts.css");
 @import url("../blocks/Element/Element.css");
 @import url("../blocks/Element/__image/Element__image.css");
 @import url("../blocks/Element/__text/Element__text.css");
@@ -6,12 +8,13 @@
 @import url("../blocks/footer/footer.css");
 @import url("../blocks/footer/__copyright/footer__copyright.css");
 @import url("../blocks/header/header.css");
-@import url("../blocks/Element/__like/Element__like.css");
-@import url("../blocks/Kusto/Kusto.css");
-@import url("../blocks/Kusto/Kusto.css");
-@import url("../blocks/Kusto/__edit/Kusto__edit-button.css");
-@import url("../blocks/Kusto/__text/Kusto__text.css");
-@import url("../blocks/Kusto/__title/Kusto__title.css");
+@import url("../blocks/header//__logo/header__logo.css");
+@import url("../blocks/element/__like/element__like.css");
+@import url("../blocks/kusto/kusto.css");
+@import url("../blocks/kusto/__edit/kusto__edit-button.css");
+@import url("../blocks/kusto/__text/kusto__text.css");
+@import url("../blocks/kusto/__title/kusto__title.css");
+@import url("../blocks/kusto/__button-add/kusto__button-add.css");
 @import url("../blocks/main/main.css");
 @import url("../blocks/page/page.css");
 @import url("../blocks/popup/popup.css");
@@ -21,13 +24,11 @@
 @import url("../blocks/popup/__form/popup__form.css");
 @import url("../blocks/popup/__input/popup__input.css");
 @import url("../blocks/popup/__title/popup__title.css");
-@import url("../blocks/Profile/Profile.css");
-@import url("../blocks/Profile/__info/Profile__info.css");
-@import url("../blocks/Profile/__image/Profile__image.css");
+@import url("../blocks/profile/profile.css");
+@import url("../blocks/profile/__info/profile__info.css");
+@import url("../blocks/profile/__image/profile__image.css");
 @import url("../blocks/popup/_opened/popup_opened.css");
-@import url("../blocks/logo/logo.css");
-@import url("../blocks/Add-button/Add-button.css");
-@import url("../blocks/Add-button/__image/Add-button__image.css");
+
 
 
 

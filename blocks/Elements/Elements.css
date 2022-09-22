@@ -1,4 +1,4 @@
-.Elements{
+.elements{
     max-width: 880px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(282px, auto));
@@ -11,7 +11,7 @@
 }
 
 @media screen and (max-width: 450px){
-    .Elements{
+    .elements{
     margin-top: 36px;           
     }
     }

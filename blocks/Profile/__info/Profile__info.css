@@ -1,9 +1,12 @@
-.Profile__info{
-    margin-right: 30px;
+.profile__info{
+    display: flex;
+
  }
 
  @media screen and (max-width: 450px){
-    .Profile__info{
-    margin: 0;           
+    .profile__info{
+    margin: 0;
+    flex-direction: column;
+    align-items: center;        
     }
     }

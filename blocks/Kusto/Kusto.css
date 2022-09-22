@@ -1,4 +1,4 @@
-.Kusto {
+.kusto {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
@@ -6,12 +6,11 @@
     grid-column-gap: 18px;
     max-height: 73px;
     margin: 22px 0 0;
+    margin-left: 30px;
 }
 @media screen and (max-width: 450px){
-    .Kusto {
-        padding-top: 22px;
+    .kusto {
         text-align: center;
-        grid-row-gap: 14px;
-        margin: 0 19px;         
+        grid-row-gap: 14px;      
     }
     }

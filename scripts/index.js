@@ -1,13 +1,13 @@
 const popup = document.querySelector('.popup');
-const openPopupButton = document.querySelector('.Kusto__edit-button');
+const openPopupButton = document.querySelector('.kusto__edit-button');
 const closePopupButton = popup.querySelector('.popup__close-button');
 // Находим форму в DOM
 let formElement = document.querySelector('.popup__form');// Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
-let nameInput = document.querySelector('.Kusto__title');// Воспользуйтесь инструментом .querySelector()
-let jobInput = document.querySelector('.Kusto__text');// Воспользуйтесь инструментом .querySelector()
-let newTextName = document.querySelector('.popup__inpyt_type_name');
-let newTextJob = document.querySelector('.popup__inpyt_type_job');
+let nameInput = document.querySelector('.kusto__title');// Воспользуйтесь инструментом .querySelector()
+let jobInput = document.querySelector('.kusto__text');// Воспользуйтесь инструментом .querySelector()
+let newTextName = document.querySelector('.popup__input_type_name');
+let newTextJob = document.querySelector('.popup__input_type_job');
 
 
 const togglePopup = () => {

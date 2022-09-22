@@ -1,4 +1,4 @@
-.Kusto__text{
+.kusto__text{
     height: 18px;
     font-family: 'Inter';
     font-style: normal;
@@ -10,7 +10,7 @@
     }
 
     @media screen and (max-width: 450px){
-        .Kusto__text{
+        .kusto__text{
             font-family: 'Inter';
             font-style: normal;
             font-weight: 400;
