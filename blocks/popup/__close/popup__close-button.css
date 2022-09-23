@@ -1,5 +1,5 @@
 .popup__close-button {
-    background: url(../../../images/Close\ Icon.png);
+    background-image: url(../../../images/Close\ Icon.png);
     min-width: 32px;
     min-height: 32px;
     background-repeat: no-repeat;
@@ -19,4 +19,4 @@
         min-height: 20px;
         right: 19px;
     }
-    }
+}
