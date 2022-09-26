@@ -12,16 +12,16 @@
 <body class="main">
    <div class="page">
       <header class="header">
-         <img src="images/Vector.png" alt="logo" class="header__logo">
+         <img src="images/mesto.svg" alt="logo" class="header__logo">
       </header>
-
+      <main>
       <section class="profile">
          <div class="profile__info">
             <img src="images/image.png" alt="kusto" class="profile__image">
-            <div class="kusto">
-               <h2 class="kusto__title">Жак-Ив Кусто</h2>
-               <button type="button" class="kusto__edit-button button" aria-label="Edit"></button>
-               <p class="kusto__text">Исследователь океана</p>
+            <div class="profile__kusto">
+               <h1 class="profile__title">Денис</h1>
+               <button type="button" class="profile__edit-button button" aria-label="Edit"></button>
+               <p class="profile__text">Исследователь океана</p>
             </div>
          </div>
          <button type="button" class="profile__button-add" aria-label="add"></button>
@@ -38,35 +38,35 @@
             <img class="element__image" src="images/kirill-pershin-1404681-unsplash.png" alt="Elb">
             <div class="element__texts">
                <h2 class="element__text">Гора Эльбрус</h2>
-               <button type="button" class="element__like" aria-label="Оценивание"></button>
+               <button type="button" class="element__like" aria-label="like"></button>
             </div>
          </article>
          <article class="element">
             <img class="element__image" src="images/kirill-pershin-1556355-unsplash.png" alt="Dmb">
             <div class="element__texts">
                <h2 class="element__text">Домбай</h2>
-               <button type="button" class="element__like" aria-label="Оценивание"></button>
+               <button type="button" class="element__like" aria-label="like"></button>
             </div>
          </article>
          <article class="element">
             <img class="element__image" src="images/kirill-pershin-1404681-unsplash.png" alt="Elb">
             <div class="element__texts">
                <h2 class="element__text">Гора Эльбрус</h2>
-               <button type="button" class="element__like" aria-label="Оценивание"></button>
+               <button type="button" class="element__like" aria-label="like"></button>
             </div>
          </article>
          <article class="element">
             <img class="element__image" src="images/kirill-pershin-1556355-unsplash.png" alt="Dmb">
             <div class="element__texts">
                <h2 class="element__text">Домбай</h2>
-               <button type="button" class="element__like" aria-label="Оценивание"></button>
+               <button type="button" class="element__like" aria-label="like"></button>
             </div>
          </article>
          <article class="element">
             <img class="element__image" src="images/kirill-pershin-1088404-unsplash.png" alt="Kar">
             <div class="element__texts">
                <h2 class="element__text">Карачаевск</h2>
-               <button type="button" class="element__like" aria-label="Оценивание"></button>
+               <button type="button" class="element__like" aria-label="like"></button>
             </div>
          </article>
       </section>
@@ -80,14 +80,15 @@
                <h2 class="popup__title">Редактировать профиль</h2>
                <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Kusto">
                <input class="popup__input popup__input_type_job" type="text" name="job" placeholder="Job">
-               <button type="submit" class="popup__button-save" aria-label="Сохранить">Сохранить</button>
-               <button type="button" class="popup__close-button" aria-label="Закрыть"></button>
+               <button type="submit" class="popup__button-save" aria-label="save">Сохранить</button>
+               <button type="button" class="popup__close-button" aria-label="close"></button>
             </form>
 
          </div>
       </section>
-      <script src="scripts/index.js"></script>
+   </main>
    </div>
+   <script src="scripts/index.js"></script>
 </body>
 
 </html>

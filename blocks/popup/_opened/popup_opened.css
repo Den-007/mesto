@@ -1,3 +1,6 @@
 .popup_opened {
-  display:block;
+  display:flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
 }

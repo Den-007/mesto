@@ -1,5 +1,5 @@
 .element__like {
-  background-image: url(../../../images/Vector\(heard\).png);
+  background: url(../../../images/Vector3.svg);
   background-repeat: no-repeat;
   background-position: center;
   margin-top: 30px;
@@ -7,10 +7,11 @@
   width: 22px;
   height: 19px;
   border: none;
+  cursor: pointer;
 }
 
 .element__like:hover {
-  opacity: 0.6;
+  opacity: 0.5;
   transition: 0.6s;
 }
 

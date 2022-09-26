@@ -1,6 +1,5 @@
-.kusto__text {
-  height: 18px;
-  font-family: 'Inter';
+.profile__text {
+  font-family: 'Inter','Arial', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -10,10 +9,7 @@
 }
 
 @media screen and (max-width: 450px) {
-  .kusto__text {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
+  .profile__text {
     font-size: 14px;
     line-height: 17px;
     text-align: center;

@@ -1,5 +1,7 @@
-.kusto__title {
+.profile__title {
+  font-family: 'Inter','Arial', sans-serif;
   font-weight: 500;
+  font-style: normal;
   font-size: 42px;
   line-height: 1.1;
   margin: 0;
@@ -9,10 +11,7 @@
 }
 
 @media screen and (max-width: 450px) {
-  .kusto__title{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
+  .profile__title{
     font-size: 27px;
     line-height: 33px;
     text-align: center;          
