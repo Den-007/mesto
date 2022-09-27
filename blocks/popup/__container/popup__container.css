@@ -3,6 +3,7 @@
   margin: auto;
   max-width: 430px;
   display: flex;
+  position: fixed;
 
 }
 
