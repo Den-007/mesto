@@ -2,14 +2,13 @@
   padding: 35px;
   margin: auto;
   max-width: 430px;
-  max-height: 330px;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   align-items:center;
   justify-content:center;
-
+  position: relative;
 }
 
 @media screen and (max-width: 450px) {
