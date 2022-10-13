@@ -1,0 +1,22 @@
+  .element__delete {
+    background: url(../../../images/trash.svg);
+    min-width: 18px;
+    min-height: 19px;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 245px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 900px){
+.element__delete {
+  margin-left: 225px;
+}
+}
+@media screen and (max-width: 580px){
+.element__delete {
+    margin-left: 245px;
+}
+}
