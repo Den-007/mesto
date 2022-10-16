@@ -14,13 +14,13 @@ const cardNameInput = document.querySelector('.popup__input_card_name');
 const cardLinkInput = document.querySelector('.popup__input_card_image');
 
 const popupAddCard = document.querySelector('.popup_add_card');
-const addPopupButton = document.querySelector('.profile__button-add');
-const closePopupButtonAdd = popupAddCard.querySelector('.popup__close-button_add_card');
-const addForm = document.querySelector('.popup__form_add_card');
+const popupAddButton = document.querySelector('.profile__button-add');
+const popupCloseButtonAdd = popupAddCard.querySelector('.popup__close-button_add_card');
+const formAdd = document.querySelector('.popup__form_add_card');
 const cardList = document.querySelector(".elements");
 
 const popupImage = document.querySelector('.popup_image_big');
-const closePopupImage = popupImage.querySelector('.popup__close-button_image_big');
+const popupCloseImage = popupImage.querySelector('.popup__close-button_image_big');
 const imageTitle = popupImage.querySelector('.popup__card-name');
 const imagePopup = popupImage.querySelector('.popup__big-image');
 
@@ -40,7 +40,7 @@ const togglePopupBig = () => {
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
-function formSubmitHandler(evt) {
+function formEditSubmitHandler(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   // Так мы можем определить свою логику отправки.
   // О том, как это делать, расскажем позже.
@@ -62,9 +62,9 @@ popupOpenButton.addEventListener('click', () => {
 })
 
 popupCloseButton.addEventListener('click', togglePopup);
-closePopupButtonAdd.addEventListener('click', togglePopupAdd);
+popupCloseButtonAdd.addEventListener('click', togglePopupAdd);
 
-addPopupButton.addEventListener('click', () => {
+popupAddButton.addEventListener('click', () => {
   togglePopupAdd();
   newTextName.value = nameInput.textContent;
   newTextJob.value = jobInput.textContent;
@@ -79,7 +79,7 @@ function closePopup(popup) {
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-formElement.addEventListener('submit', formSubmitHandler);
+formElement.addEventListener('submit', formEditSubmitHandler);
 
 // основная функция рендеринга
 function createCard(cardData) {
@@ -115,7 +115,7 @@ function submitAddCardForm(evt) {
   togglePopupAdd();
 }
 
-addForm.addEventListener('submit', submitAddCardForm);
+formAdd.addEventListener('submit', submitAddCardForm);
 
 function setListenersForItem(element, image) {
   const deleteButton = element.querySelector('.element__delete');
@@ -166,11 +166,11 @@ function closePopupOverlay(e) {
 
 document.addEventListener("click", closePopupOverlay);
 
-closePopupButtonAdd.addEventListener('click', () => {
+popupCloseButtonAdd.addEventListener('click', () => {
   closePopup(popupAddCard);
 });
 
-closePopupImage.addEventListener('click', () => {
+popupCloseImage.addEventListener('click', () => {
   closePopup(popupImage);
 });
 
