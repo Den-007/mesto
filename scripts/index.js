@@ -1,8 +1,8 @@
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupOpenButton = document.querySelector('.profile__edit-button');
-const popupCloseButton = document.querySelector('.popup__close-button');
+const popupCloseButton = document.querySelector('.popup__close-button_edit');
 // Находим форму в DOM
-const formElement = document.querySelector('.popup__form');// Воспользуйтесь методом querySelector()
+const formElement = document.querySelector('.popup__form_profile');// Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
 const nameInput = document.querySelector('.profile__title');// Воспользуйтесь инструментом .querySelector()
 const jobInput = document.querySelector('.profile__text');// Воспользуйтесь инструментом .querySelector()
@@ -63,19 +63,13 @@ popupOpenButton.addEventListener('click', () => {
 
 popupCloseButton.addEventListener('click', togglePopup);
 popupCloseButtonAdd.addEventListener('click', togglePopupAdd);
+popupCloseImage.addEventListener('click', togglePopupBig);
 
 popupAddButton.addEventListener('click', () => {
   togglePopupAdd();
   newTextName.value = nameInput.textContent;
   newTextJob.value = jobInput.textContent;
 })
-
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-}
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-}
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
@@ -129,7 +123,7 @@ function setListenersForItem(element, image) {
 }
 
 function handleGenerateImagePopup(element, image) {
-  const bigImageName = element.querySelector('.element__text').textContent;
+  const bigImageName = element.textContent;
 
   imagePopup.src = image.src;
   imageTitle.textContent = bigImageName;
@@ -154,26 +148,26 @@ function closePopupOverlay(e) {
   const its_popupImage = target == popupImage;
 
   if (its_popupProfile) {
-    closePopup(popupEditProfile);
+    popupEditProfile.classList.remove('popup_opened');
   }
   if (its_popupCard) {
-    closePopup(popupAddCard);
+   popupAddCard.classList.remove('popup_opened');
   }
   if (its_popupImage) {
-    closePopup(popupImage);
+    popupImage.classList.remove('popup_opened');
   }
 }
 
-document.addEventListener("click", closePopupOverlay);
-
-popupCloseButtonAdd.addEventListener('click', () => {
-  closePopup(popupAddCard);
-});
-
-popupCloseImage.addEventListener('click', () => {
-  closePopup(popupImage);
-});
-
-popupCloseButton.addEventListener('click', () => {
-  closePopup(popupEditProfile);
-});
+//document.addEventListener("click", closePopupOverlay);
+//
+//opupCloseButtonAdd.addEventListener('click', () => {
+// popupAddCard.classList.remove('popup_opened');
+//);
+//
+//opupCloseImage.addEventListener('click', () => {
+// popupImage.classList.remove('popup_opened');
+//);
+//
+//opupCloseButton.addEventListener('click', () => {
+// popupEditProfile.classList.remove('popup_opened');
+//);
