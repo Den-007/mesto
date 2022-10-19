@@ -1,6 +1,6 @@
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupOpenButton = document.querySelector('.profile__edit-button');
-const popupCloseButton = document.querySelector('.popup__close-button_edit');
+const buttonCloseEditProfilePopup = document.querySelector('.popup__close-button_edit');
 // Находим форму в DOM
 const formElement = document.querySelector('.popup__form_profile');// Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
@@ -26,16 +26,8 @@ const imagePopup = popupImage.querySelector('.popup__big-image');
 
 const cardTemplate = document.querySelector(".card-template");
 
-const togglePopup = () => {
-  popupEditProfile.classList.toggle('popup_opened');
-}
-
-const togglePopupAdd = () => {
-  popupAddCard.classList.toggle('popup_opened');
-}
-
-const togglePopupBig = () => {
-  popupImage.classList.toggle('popup_opened');
+const togglePopup = (popup) => {
+  popup.classList.toggle('popup_opened')
 }
 
 // Обработчик «отправки» формы, хотя пока
@@ -52,21 +44,21 @@ function formEditSubmitHandler(evt) {
   // Вставьте новые значения с помощью textContent
   nameInput.textContent = newTextName.value;
   jobInput.textContent = newTextJob.value;
-  togglePopup();
+  togglePopup(popupEditProfile);
 }
 
 popupOpenButton.addEventListener('click', () => {
-  togglePopup();
+  togglePopup(popupEditProfile);
   newTextName.value = nameInput.textContent;
   newTextJob.value = jobInput.textContent;
 })
 
-popupCloseButton.addEventListener('click', togglePopup);
-popupCloseButtonAdd.addEventListener('click', togglePopupAdd);
-popupCloseImage.addEventListener('click', togglePopupBig);
+buttonCloseEditProfilePopup.addEventListener('click', () => togglePopup(popupEditProfile));
+popupCloseButtonAdd.addEventListener('click', () => togglePopup(popupAddCard));
+popupCloseImage.addEventListener('click', () => togglePopup(popupImage));
 
 popupAddButton.addEventListener('click', () => {
-  togglePopupAdd();
+  togglePopup(popupAddCard);
   newTextName.value = nameInput.textContent;
   newTextJob.value = jobInput.textContent;
 })
@@ -105,8 +97,8 @@ function submitAddCardForm(evt) {
   userNewCard.link = cardLinkInput.value;
 
   cardList.prepend(createCard(userNewCard));
-
-  togglePopupAdd();
+  
+  togglePopup(popupAddCard);
 }
 
 formAdd.addEventListener('submit', submitAddCardForm);
@@ -129,7 +121,7 @@ function handleGenerateImagePopup(element, image) {
   imageTitle.textContent = bigImageName;
   imagePopup.alt = bigImageName;
 
-  togglePopupBig();
+  togglePopup(popupImage);
 }
 
 function handleLike(event) {
@@ -148,13 +140,13 @@ function closePopupOverlay(e) {
   const its_popupImage = target == popupImage;
 
   if (its_popupProfile) {
-    popupEditProfile.classList.remove('popup_opened');
+    togglePopup (popupEditProfile);
   }
   if (its_popupCard) {
-   popupAddCard.classList.remove('popup_opened');
+    togglePopup (popupAddCard);
   }
   if (its_popupImage) {
-    popupImage.classList.remove('popup_opened');
+    togglePopup (popupImage.classList);
   }
 }
 
