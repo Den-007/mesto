@@ -27,7 +27,8 @@ const imagePopup = popupImage.querySelector('.popup__big-image');
 const cardTemplate = document.querySelector(".card-template");
 
 const togglePopup = (popup) => {
-  popup.classList.toggle('popup_opened')
+  popup.classList.toggle('popup_opened');
+  deliteError(popup);
 }
 
 // Обработчик «отправки» формы, хотя пока
@@ -146,20 +147,45 @@ function closePopupOverlay(e) {
     togglePopup (popupAddCard);
   }
   if (its_popupImage) {
-    togglePopup (popupImage.classList);
+    togglePopup (popupImage);
   }
 }
 
-//document.addEventListener("click", closePopupOverlay);
+document.addEventListener("click", closePopupOverlay);
+document.addEventListener("keydown", function (evt){
+  if (evt.key === 'Escape'){
+    const openedPopup = document.querySelector('.popup_opened') // нашли открытый попап
+    // закрыли попап
+    togglePopup(openedPopup);
+  }
+});
+
+//popupCloseButtonAdd.addEventListener('click', () => {
+//togglePopup(popupAddCard);
+//});
 //
-//opupCloseButtonAdd.addEventListener('click', () => {
-// popupAddCard.classList.remove('popup_opened');
-//);
+//popupCloseImage.addEventListener('click', () => {
+//togglePopup(popupImage);
+//});
 //
-//opupCloseImage.addEventListener('click', () => {
-// popupImage.classList.remove('popup_opened');
-//);
-//
-//opupCloseButton.addEventListener('click', () => {
-// popupEditProfile.classList.remove('popup_opened');
-//);
+//buttonCloseEditProfilePopup.addEventListener('click', () => {
+//togglePopup(popupEditProfile);
+//});
+
+function deliteError (formElement) {
+  // Найдём все спаны и инпуты с указанным классом в DOM,
+  // сделаем из них массив методом Array.from
+  const spanList = Array.from(formElement.querySelectorAll('.popup__input-error'));
+  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
+  // Переберём полученные коллекции
+  spanList.forEach((spanElement) => {
+    // Скрываем сообщение об ошибке
+    spanElement.classList.remove('popup__input-error_active');
+    // Очистим ошибку
+    spanElement.textContent = '';
+  });
+  inputList.forEach((inputElement) => {
+    // скрываем красное подчеркивание
+    inputElement.classList.remove('popup__input_type_error');
+  });
+}

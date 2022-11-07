@@ -2,8 +2,8 @@
   border-radius: 10px;
   color: #000000;
   background-color: #FFFFFF;
-  text-align: center;
   padding: 34px 36px 37px;
+  position: relative;
 }
 
 @media screen and (max-width: 450px) {
