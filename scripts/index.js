@@ -1,8 +1,8 @@
 const popupEditProfile = document.querySelector('.popup_edit-profile');
-const popupOpenButton = document.querySelector('.profile__edit-button');
+const popupEditButtonProfile = document.querySelector('.profile__edit-button');
 const buttonCloseEditProfilePopup = document.querySelector('.popup__close-button_edit');
 // Находим форму в DOM
-const formElement = document.querySelector('.popup__form_profile');// Воспользуйтесь методом querySelector()
+const formElementProfile = document.querySelector('.popup__form_profile');// Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
 const nameInput = document.querySelector('.profile__title');// Воспользуйтесь инструментом .querySelector()
 const jobInput = document.querySelector('.profile__text');// Воспользуйтесь инструментом .querySelector()
@@ -27,10 +27,31 @@ const imagePopup = popupImage.querySelector('.popup__big-image');
 const cardTemplate = document.querySelector(".card-template");
 
 const togglePopup = (popup) => {
-  popup.classList.toggle('popup_opened');
-  deliteError(popup);
+  popup.classList.toggle('popup_opened')
+  if(popup != popupImage)
+  hideInputError(popup);
+
+  const openedPopup = document.querySelector('.popup_opened');
+ // console.log(openedPopup);
+  if(openedPopup){
+  openedPopup.addEventListener("click", function (evt){
+    if(evt.target === popup){
+      closePopupOverlay(evt);
+    }
+  });
+  document.addEventListener("keydown", doSomething);
+}
+else document.removeEventListener("keydown", doSomething);
 }
 
+// Функция, которая позволяет закрыть попап нажатием на Escape
+function doSomething(evt){
+  const openedPopup = document.querySelector('.popup_opened');
+  if(evt.key === "Escape"){
+    //console.log(evt.key);
+    togglePopup(openedPopup);
+  }
+}
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 function formEditSubmitHandler(evt) {
@@ -48,7 +69,7 @@ function formEditSubmitHandler(evt) {
   togglePopup(popupEditProfile);
 }
 
-popupOpenButton.addEventListener('click', () => {
+popupEditButtonProfile.addEventListener('click', () => {
   togglePopup(popupEditProfile);
   newTextName.value = nameInput.textContent;
   newTextJob.value = jobInput.textContent;
@@ -66,7 +87,7 @@ popupAddButton.addEventListener('click', () => {
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-formElement.addEventListener('submit', formEditSubmitHandler);
+formElementProfile.addEventListener('submit', formEditSubmitHandler);
 
 // основная функция рендеринга
 function createCard(cardData) {
@@ -134,31 +155,32 @@ function handleDelete(event) {
 }
 renderInitialCards();
 
-function closePopupOverlay(e) {
-  const target = e.target;
-  const its_popupProfile = target == popupEditProfile;
-  const its_popupCard = target == popupAddCard;
-  const its_popupImage = target == popupImage;
+//function closePopupOverlay(e) {
+//  const target = e.target;
+//  const its_popupProfile = target == popupEditProfile;
+//  const its_popupCard = target == popupAddCard;
+//  const its_popupImage = target == popupImage;
+//
+//  if (its_popupProfile) {
+//    togglePopup (popupEditProfile);
+//  }
+//  if (its_popupCard) {
+//    togglePopup (popupAddCard);
+//  }
+//  if (its_popupImage) {
+//    togglePopup (popupImage);
+//  }
+//}
 
-  if (its_popupProfile) {
-    togglePopup (popupEditProfile);
+function closePopupOverlay(e){
+  const popup = document.querySelector(".popup_opened");
+  togglePopup(popup);
+  if(popup != popupImage)
+  hideInputError(popup);
   }
-  if (its_popupCard) {
-    togglePopup (popupAddCard);
-  }
-  if (its_popupImage) {
-    togglePopup (popupImage);
-  }
-}
 
-document.addEventListener("click", closePopupOverlay);
-document.addEventListener("keydown", function (evt){
-  if (evt.key === 'Escape'){
-    const openedPopup = document.querySelector('.popup_opened') // нашли открытый попап
-    // закрыли попап
-    togglePopup(openedPopup);
-  }
-});
+
+//document.addEventListener("click", closePopupOverlay);
 
 //popupCloseButtonAdd.addEventListener('click', () => {
 //togglePopup(popupAddCard);
@@ -172,20 +194,20 @@ document.addEventListener("keydown", function (evt){
 //togglePopup(popupEditProfile);
 //});
 
-function deliteError (formElement) {
-  // Найдём все спаны и инпуты с указанным классом в DOM,
-  // сделаем из них массив методом Array.from
-  const spanList = Array.from(formElement.querySelectorAll('.popup__input-error'));
-  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
-  // Переберём полученные коллекции
-  spanList.forEach((spanElement) => {
-    // Скрываем сообщение об ошибке
-    spanElement.classList.remove('popup__input-error_active');
-    // Очистим ошибку
-    spanElement.textContent = '';
-  });
-  inputList.forEach((inputElement) => {
-    // скрываем красное подчеркивание
-    inputElement.classList.remove('popup__input_type_error');
-  });
-}
+//function deleteError (formElement) {
+//  // Найдём все спаны и инпуты с указанным классом в DOM,
+//  // сделаем из них массив методом Array.from
+//  const spanList = Array.from(formElement.querySelectorAll('.popup__input-error'));
+//  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
+//  // Переберём полученные коллекции
+//  spanList.forEach((spanElement) => {
+//    // Скрываем сообщение об ошибке
+//    spanElement.classList.remove('popup__input-error_active');
+//    // Очистим ошибку
+//    spanElement.textContent = '';
+//  });
+//  inputList.forEach((inputElement) => {
+//    // скрываем красное подчеркивание
+//    inputElement.classList.remove('popup__input_type_error');
+//  });
+//}
