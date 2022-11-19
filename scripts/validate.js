@@ -62,7 +62,7 @@ const toggleButtonState = (inputList, buttonElement, obj) => {
 const showInputError = (formElement, inputElement, errorMessage, obj) => {
   // Находим элемент ошибки
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  console.log(errorElement);
+  //console.log(errorElement);
   
   inputElement.classList.add(obj.inputErrorClass);
   // Заменим содержимое span с ошибкой на переданный параметр

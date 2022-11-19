@@ -26,61 +26,51 @@ const imagePopup = popupImage.querySelector('.popup__big-image');
 
 const cardTemplate = document.querySelector(".card-template");
 
-const togglePopup = (popup) => {
-  popup.classList.toggle('popup_opened')
-  if(popup != popupImage)
-  hideInputError(popup);
-
-  const openedPopup = document.querySelector('.popup_opened');
- // console.log(openedPopup);
-  if(openedPopup){
-  openedPopup.addEventListener("click", function (evt){
-    if(evt.target === popup){
-      closePopupOverlay(evt);
-    }
-  });
-  document.addEventListener("keydown", doSomething);
+function open(popup){
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', doSomething);
+  document.addEventListener('click', function(evt){
+    //console.log(evt.target);
+    const pop = document.querySelector('.popup_opened');
+     if(evt.target === pop){
+       closePopupOverlay();
+     }
+   });
 }
-else document.removeEventListener("keydown", doSomething);
+
+function close(popup){
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', doSomething); 
 }
 
 // Функция, которая позволяет закрыть попап нажатием на Escape
 function doSomething(evt){
-  const openedPopup = document.querySelector('.popup_opened');
-  if(evt.key === "Escape"){
-    //console.log(evt.key);
-    togglePopup(openedPopup);
+  if (evt.key === 'Escape'){
+    const openedPopup = document.querySelector('.popup_opened');
+    close(openedPopup);
   }
 }
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 function formEditSubmitHandler(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-  // Так мы можем определить свою логику отправки.
-  // О том, как это делать, расскажем позже.
-
-  // Получите значение полей jobInput и nameInput из свойства value
-
-  // Выберите элементы, куда должны быть вставлены значения полей
-
-  // Вставьте новые значения с помощью textContent
   nameInput.textContent = newTextName.value;
   jobInput.textContent = newTextJob.value;
-  togglePopup(popupEditProfile);
+  close(popupEditProfile);
 }
 
 popupEditButtonProfile.addEventListener('click', () => {
-  togglePopup(popupEditProfile);
+  open(popupEditProfile);
   newTextName.value = nameInput.textContent;
   newTextJob.value = jobInput.textContent;
 })
 
-buttonCloseEditProfilePopup.addEventListener('click', () => togglePopup(popupEditProfile));
-popupCloseButtonAdd.addEventListener('click', () => togglePopup(popupAddCard));
-popupCloseImage.addEventListener('click', () => togglePopup(popupImage));
+buttonCloseEditProfilePopup.addEventListener('click', () => close(popupEditProfile));
+popupCloseButtonAdd.addEventListener('click', () => close(popupAddCard));
+popupCloseImage.addEventListener('click', () => close(popupImage));
 
 popupAddButton.addEventListener('click', () => {
-  togglePopup(popupAddCard);
+  open(popupAddCard);
   newTextName.value = nameInput.textContent;
   newTextJob.value = jobInput.textContent;
 })
@@ -98,7 +88,6 @@ function createCard(cardData) {
   header.textContent = cardData.name; // устанавливаем заголовок элемента
   image.src = cardData.link;
   image.alt = cardData.name;
-
   setListenersForItem(card, image);
   return card;
 }
@@ -120,7 +109,7 @@ function submitAddCardForm(evt) {
 
   cardList.prepend(createCard(userNewCard));
   
-  togglePopup(popupAddCard);
+  close(popupAddCard);
 }
 
 formAdd.addEventListener('submit', submitAddCardForm);
@@ -143,7 +132,7 @@ function handleGenerateImagePopup(element, image) {
   imageTitle.textContent = bigImageName;
   imagePopup.alt = bigImageName;
 
-  togglePopup(popupImage);
+  open(popupImage);
 }
 
 function handleLike(event) {
@@ -155,28 +144,24 @@ function handleDelete(event) {
 }
 renderInitialCards();
 
-//function closePopupOverlay(e) {
-//  const target = e.target;
-//  const its_popupProfile = target == popupEditProfile;
-//  const its_popupCard = target == popupAddCard;
-//  const its_popupImage = target == popupImage;
-//
-//  if (its_popupProfile) {
-//    togglePopup (popupEditProfile);
-//  }
-//  if (its_popupCard) {
-//    togglePopup (popupAddCard);
-//  }
-//  if (its_popupImage) {
-//    togglePopup (popupImage);
-//  }
-//}
 
-function closePopupOverlay(e){
+function closePopupOverlay(evt){
   const popup = document.querySelector(".popup_opened");
-  togglePopup(popup);
-  if(popup != popupImage)
-  hideInputError(popup);
+  close(popup);
+  if(popup != popupImage){
+
+    const errorActiveList = popup.querySelectorAll('.popup__input-error_active');
+    const typeErrorList = popup.querySelectorAll('.popup__input_type_error');
+
+    errorActiveList.forEach((spanElement) => {
+      spanElement.classList.remove('popup__input-error_active');
+      spanElement.textContent = '';
+    });
+
+    typeErrorList.forEach((spanElement) => {
+      spanElement.classList.remove('popup__input_type_error');
+    });
+  }
   }
 
 
