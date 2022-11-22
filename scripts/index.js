@@ -26,27 +26,31 @@ const imagePopup = popupImage.querySelector('.popup__big-image');
 
 const cardTemplate = document.querySelector(".card-template");
 
+const popups = Array.from(document.querySelectorAll('.popup'))
+popups.forEach(popup => popup.addEventListener('click', closeByOverlay));
+
+function closeByOverlay(evt) { 
+  if (evt.target === evt.currentTarget) {
+    clearErrors(evt.currentTarget);
+    close(evt.currentTarget)
+  }
+}
+
 function open(popup){
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', doSomething);
-  document.addEventListener('click', function(evt){
-    //console.log(evt.target);
-    const pop = document.querySelector('.popup_opened');
-     if(evt.target === pop){
-       closePopupOverlay();
-     }
-   });
+  document.addEventListener('keydown', handleCloseByEsc);
 }
 
 function close(popup){
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', doSomething); 
+  document.removeEventListener('keydown', handleCloseByEsc); 
 }
 
 // Функция, которая позволяет закрыть попап нажатием на Escape
-function doSomething(evt){
+function handleCloseByEsc(evt){
   if (evt.key === 'Escape'){
     const openedPopup = document.querySelector('.popup_opened');
+    clearErrors(openedPopup);
     close(openedPopup);
   }
 }
@@ -143,27 +147,6 @@ function handleDelete(event) {
   currentListItem.remove();
 }
 renderInitialCards();
-
-
-function closePopupOverlay(evt){
-  const popup = document.querySelector(".popup_opened");
-  close(popup);
-  if(popup != popupImage){
-
-    const errorActiveList = popup.querySelectorAll('.popup__input-error_active');
-    const typeErrorList = popup.querySelectorAll('.popup__input_type_error');
-
-    errorActiveList.forEach((spanElement) => {
-      spanElement.classList.remove('popup__input-error_active');
-      spanElement.textContent = '';
-    });
-
-    typeErrorList.forEach((spanElement) => {
-      spanElement.classList.remove('popup__input_type_error');
-    });
-  }
-  }
-
 
 //document.addEventListener("click", closePopupOverlay);
 

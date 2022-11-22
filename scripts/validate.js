@@ -21,6 +21,21 @@ const isValidText = (input) => {
   return input.checkValidity();
 }
 
+function clearErrors(popup){
+  //console.log(popup);
+  const errorActiveList = popup.querySelectorAll('.popup__input-error_active');
+  const typeErrorList = popup.querySelectorAll('.popup__input_type_error');
+
+  errorActiveList.forEach((spanElement) => {
+    spanElement.classList.remove('popup__input-error_active');
+    spanElement.textContent = '';
+  });
+
+  typeErrorList.forEach((spanElement) => {
+    spanElement.classList.remove('popup__input_type_error');
+  });
+}
+
 // Функция принимает массив полей
 const hasInvalidInput = (inputList) => {
   // проходим по этому массиву методом some
@@ -134,15 +149,3 @@ const enableValidation = (obj) => {
     setEventListeners(formElement, obj);
   });
 }
-// включение валидации вызовом enableValidation
-// Вызовем функцию
-// все настройки передаются при вызове
-enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.button',
-  invalidButtonClass: 'popup__button_invalid',
-  inactiveButtonClass: "disabled",
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_active'
-}); 
