@@ -31,7 +31,6 @@ popups.forEach(popup => popup.addEventListener('click', closeByOverlay));
 
 function closeByOverlay(evt) { 
   if (evt.target === evt.currentTarget) {
-    clearErrors(evt.currentTarget);
     close(evt.currentTarget)
   }
 }
@@ -50,7 +49,6 @@ function close(popup){
 function handleCloseByEsc(evt){
   if (evt.key === 'Escape'){
     const openedPopup = document.querySelector('.popup_opened');
-    clearErrors(openedPopup);
     close(openedPopup);
   }
 }
@@ -67,6 +65,7 @@ popupEditButtonProfile.addEventListener('click', () => {
   open(popupEditProfile);
   newTextName.value = nameInput.textContent;
   newTextJob.value = jobInput.textContent;
+  clearErrors(popupEditProfile);
 })
 
 buttonCloseEditProfilePopup.addEventListener('click', () => close(popupEditProfile));
@@ -75,8 +74,7 @@ popupCloseImage.addEventListener('click', () => close(popupImage));
 
 popupAddButton.addEventListener('click', () => {
   open(popupAddCard);
-  newTextName.value = nameInput.textContent;
-  newTextJob.value = jobInput.textContent;
+  clearErrors(popupAddCard);
 })
 
 // Прикрепляем обработчик к форме:
