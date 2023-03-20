@@ -1,3 +1,6 @@
+import Card from '../class/Card.js';
+import FormValidator from '../class/FormValidator.js';
+
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupEditButtonProfile = document.querySelector('.profile__edit-button');
 const buttonCloseEditProfilePopup = document.querySelector('.popup__close-button_edit');
@@ -67,7 +70,6 @@ popupEditButtonProfile.addEventListener('click', () => {
   newTextJob.value = jobInput.textContent;
   clearErrors(popupEditProfile);
 })
-
 buttonCloseEditProfilePopup.addEventListener('click', () => close(popupEditProfile));
 popupCloseButtonAdd.addEventListener('click', () => close(popupAddCard));
 popupCloseImage.addEventListener('click', () => close(popupImage));
@@ -145,35 +147,3 @@ function handleDelete(event) {
   currentListItem.remove();
 }
 renderInitialCards();
-
-//document.addEventListener("click", closePopupOverlay);
-
-//popupCloseButtonAdd.addEventListener('click', () => {
-//togglePopup(popupAddCard);
-//});
-//
-//popupCloseImage.addEventListener('click', () => {
-//togglePopup(popupImage);
-//});
-//
-//buttonCloseEditProfilePopup.addEventListener('click', () => {
-//togglePopup(popupEditProfile);
-//});
-
-//function deleteError (formElement) {
-//  // Найдём все спаны и инпуты с указанным классом в DOM,
-//  // сделаем из них массив методом Array.from
-//  const spanList = Array.from(formElement.querySelectorAll('.popup__input-error'));
-//  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
-//  // Переберём полученные коллекции
-//  spanList.forEach((spanElement) => {
-//    // Скрываем сообщение об ошибке
-//    spanElement.classList.remove('popup__input-error_active');
-//    // Очистим ошибку
-//    spanElement.textContent = '';
-//  });
-//  inputList.forEach((inputElement) => {
-//    // скрываем красное подчеркивание
-//    inputElement.classList.remove('popup__input_type_error');
-//  });
-//}
