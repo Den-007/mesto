@@ -22,7 +22,7 @@ const popupAddForm = popupAdd.querySelector('.popup__form_add_card');
 const options = ({
   inputSelector: 'popup__input',
   submitButtonSelector: '.popup__button-save',
-  inactiveButtonClass: 'popup__save-button_inactive',
+  inactiveButtonClass: 'popup__button-save_inactive',
   errorClassActive: 'popup__input-error_active',
   inputErrorClass: 'popup__input_type_error',
 });
