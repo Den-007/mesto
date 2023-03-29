@@ -26,7 +26,6 @@ const options = ({
   errorClassActive: 'popup__input-error_active',
   inputErrorClass: 'popup__input_type_error',
 });
-console.log(options.submitButtonSelector); 
 
 //создание класса валидации для формы добавления новой карточки
 const formValidatorPopupAdd = new FormValidator(options, popupAddForm);

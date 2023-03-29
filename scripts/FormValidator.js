@@ -6,12 +6,14 @@ export default class FormValidator {
     }
     _hiddenError(input) {  //метод скрывает ошибку 
       this._errorInput = this._form.querySelector(`.${input.id}-error`); //показ ошибки под инпутом
+      console.log(this._errorInput);
       input.classList.remove(this._options.inputErrorClass);
       this._errorInput.classList.remove(this._options.errorClassActive);
       this._errorInput.textContent = '';
     };
     _showError(input) {  //метод показывает ошибку    
       this._errorInput = this._form.querySelector(`.${input.id}-error`); //показ ошибки под инпутом
+      console.log(this._errorInput);
       input.classList.add(this._options.inputErrorClass);
       this._errorInput.classList.add(this._options.errorClassActive);
       this._errorInput.textContent = input.validationMessage;
@@ -24,7 +26,6 @@ export default class FormValidator {
       }
     };
     _disableButton = () => { //кнопка не активна 
-        console.log(this._submitButton);   
       this._submitButton.setAttribute('disabled', 'true');
       this._submitButton.classList.add(this._options.inactiveButtonClass);
     };
@@ -40,12 +41,11 @@ export default class FormValidator {
       }
     };
     _setEventListeners = () => {
-        console.log(this._form); 
-      this._inputs = Array.from(this._form.querySelectorAll(this._options.inputSelector)); //массив всех инпутов 
-      console.log(this._inputs);   
-      this._submitButton = this._form.querySelector(this._options.submitButtonSelector); //кнопка сохранить 
+      this._inputs = Array.from(this._form.querySelectorAll("."+this._options.inputSelector)); //массив всех инпутов    
+      this._submitButton = this._form.querySelector(this._options.submitButtonSelector); //кнопка сохранить   
       this._inputs.forEach(input => {    // обходим массив импутов    
         input.addEventListener('input', () => {
+          console.log(this._inputs);
           this._toggleErrorState(input);
           this._togglePopupAddButton(input);
         });
