@@ -1,4 +1,4 @@
-const errorMassage = {
+/*const errorMassage = {
   empty: 'Вы пропустили это поле.',
   wrongUrl: 'Введите адрес сайта.'
 }
@@ -149,3 +149,4 @@ const enableValidation = (obj) => {
     setEventListeners(formElement, obj);
   });
 }
+*/

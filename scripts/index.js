@@ -22,7 +22,7 @@ const popupAddForm = popupAdd.querySelector('.popup__form_add_card');
 const options = ({
   inputSelector: 'popup__input',
   submitButtonSelector: '.popup__button-save',
-  inactiveButtonClass: 'popup__button-save_inactive',
+  inactiveButtonClass: 'popup__button-save_invalid',
   errorClassActive: 'popup__input-error_active',
   inputErrorClass: 'popup__input_type_error',
 });
@@ -82,9 +82,10 @@ function openPopup(popup) {            //ф-ция открытия попапа
 };
 buttonAdd.addEventListener('click', () => {    //слушатель события //открыть попап 'Новая карточка'
   openPopup(popupAdd);
-  formValidatorPopupAdd.enableValidation();
-
 });
+
+formValidatorPopupAdd.enableValidation(); // валидация формы добавыления карточки
+
 // находим все крестики проекта по универсальному селектору
 const closeButtons = document.querySelectorAll('.popup__close-button');
 closeButtons.forEach((button) => {
@@ -109,15 +110,24 @@ profileEditButton.addEventListener('click', () => {      //слушатель с
   profilePopupJob.value = profileJob.textContent;
 });
 
+function createCard(obj) {
+  // тут создаете карточку и возвращаете ее
+  const cardNew = new Card(obj, '.card-template');
+  const cardElement = cardNew.generateCard();
+
+return cardElement
+}
+
 function handleCardFormSubmit(event) {    //заполнение формы и добавление новой карточки на страницу
   event.preventDefault();
      const obj = {
       name: popupAddPlace.value,
       link: popupAddLink.value
     }
-    const cardNew = new Card(obj, '.card-template');
-    const cardElement = cardNew.generateCard();
-    document.querySelector('.elements').prepend(cardElement);
+    
+    const cardElement = createCard(obj);
+    
+    cardsContainer.prepend(cardElement);
 
   event.target.reset();       //очистка формы от введённых значений
   closePopup(popupAdd);
@@ -126,9 +136,8 @@ popupAddForm.addEventListener('submit', handleCardFormSubmit);
 
 //создание карточек
 initialCards.forEach((item) => {
-  const card = new Card(item, '.card-template');
-  const cardElement = card.generateCard();
-  document.querySelector('.elements').append(cardElement);
+  const cardElement = createCard(item);
+  cardsContainer.append(cardElement);
 });
 
 export { openPopup };

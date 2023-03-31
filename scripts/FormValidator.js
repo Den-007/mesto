@@ -33,7 +33,7 @@ export default class FormValidator {
       this._submitButton.removeAttribute('disabled');
       this._submitButton.classList.remove(this._options.inactiveButtonClass);
     };
-    _togglePopupAddButton(input) {   //активна кнопка, если оба поля валидны    
+    _toggleButtonState(input) {   //активна кнопка, если оба поля валидны    
       if (input.validity.valid) {
         this._enableButton();
       } else {
@@ -47,16 +47,14 @@ export default class FormValidator {
         input.addEventListener('input', () => {
           console.log(this._inputs);
           this._toggleErrorState(input);
-          this._togglePopupAddButton(input);
+          this._toggleButtonState(input);
         });
-        this._togglePopupAddButton(input);
+        this._toggleButtonState(input);
       });
     };
     //метод, включающий валидацию формы
     enableValidation = () => {
       this._setEventListeners();
     };
-    enableValidationAdd = () => {
-      this._setEventListeners();
-    };
+  
   }

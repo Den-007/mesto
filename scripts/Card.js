@@ -1,4 +1,7 @@
 import { openPopup } from './index.js';
+const _popupPhoto = document.querySelector('.popup_image_big');
+//const _popupPhotoLink = _popupPhoto.querySelector('.popup__big-image');
+//const _popupPhotoTitle = _popupPhoto.querySelector('.popup__card-name');
 export default class Card {
   constructor(data, templateSelector) {
     this._name = data.name;
@@ -24,14 +27,11 @@ export default class Card {
     return this._element;
   }
   _setEventListener() {
-    this._cardsContainer = document.querySelector('.elements');
-
+    
     this._buttonLike = this._element.querySelector('.element__like'); //кнопка лайк
     this._buttonDelete = this._element.querySelector('.element__delete'); //кнопка корзина
     //выбор элементов для попапа"большое фото"
-    this._popupPhoto = document.querySelector('.popup_image_big');
-    this._popupPhotoLink = this._popupPhoto.querySelector('.popup__big-image');
-    this._popupPhotoTitle = this._popupPhoto.querySelector('.popup__card-name');
+    
 
     this._buttonLikeListener();  //вызов метода //лайк фото
     this._buttonDeleteListener();  //вызов метода //удаление карточки
