@@ -33,21 +33,23 @@ export default class FormValidator {
       this._submitButton.removeAttribute('disabled');
       this._submitButton.classList.remove(this._options.inactiveButtonClass);
     };
-    _toggleButtonState(input) {   //активна кнопка, если оба поля валидны    
-      if (input.validity.valid) {
+    _toggleButtonState(input1, input2) {   //активна кнопка, если оба поля валидны    
+      
+      if (input1.validity.valid && input2.validity.valid) {
         this._enableButton();
       } else {
         this._disableButton();
       }
+    
     };
     _setEventListeners = () => {
       this._inputs = Array.from(this._form.querySelectorAll("."+this._options.inputSelector)); //массив всех инпутов    
+      console.log(this._inputs);
       this._submitButton = this._form.querySelector(this._options.submitButtonSelector); //кнопка сохранить   
       this._inputs.forEach(input => {    // обходим массив импутов    
         input.addEventListener('input', () => {
-          console.log(this._inputs);
           this._toggleErrorState(input);
-          this._toggleButtonState(input);
+          this._toggleButtonState(this._inputs[0], this._inputs[1]);
         });
         this._toggleButtonState(input);
       });

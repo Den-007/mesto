@@ -1,7 +1,8 @@
 import { openPopup } from './index.js';
 const _popupPhoto = document.querySelector('.popup_image_big');
-//const _popupPhotoLink = _popupPhoto.querySelector('.popup__big-image');
-//const _popupPhotoTitle = _popupPhoto.querySelector('.popup__card-name');
+console.log(_popupPhoto);
+const _popupPhotoLink = _popupPhoto.querySelector('.popup__big-image');
+const _popupPhotoTitle = _popupPhoto.querySelector('.popup__card-name');
 export default class Card {
   constructor(data, templateSelector) {
     this._name = data.name;
@@ -59,9 +60,9 @@ export default class Card {
     });
   }
   _openPopupPhoto() {  // открытие попапа Большое фото
-    openPopup(this._popupPhoto);
-    this._popupPhotoLink.src = this._link;
-    this._popupPhotoTitle.textContent = this._name;
-    this._popupPhotoLink.alt = this._name;
+    openPopup(_popupPhoto);
+    _popupPhotoLink.src = this._link;
+    _popupPhotoTitle.textContent = this._name;
+    _popupPhotoLink.alt = this._name;
   }
 }
