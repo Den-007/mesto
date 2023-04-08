@@ -61,7 +61,7 @@ const initialCards = [    // исходный массив с ссылками �
   }
 ];
 
-function keyEscHandler(evt) {  //функция закрытия попапа по клику на 'Escape'
+function setKeyEscHandler(evt) {  //функция закрытия попапа по клику на 'Escape'
   if (evt.key === 'Escape') {
     const popupSome = document.querySelector('.popup_opened')
     closePopup(popupSome);
@@ -74,11 +74,11 @@ function closePopupOverlay(evt) {  //функция закрытия попап�
 };
 function closePopup(popup) {           //ф-ция закрытия попапа
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', keyEscHandler); //удаление слушателя события Закрытия попапа по клику на Esc
+  document.removeEventListener('keydown', setKeyEscHandler); //удаление слушателя события Закрытия попапа по клику на Esc
 };
 function openPopup(popup) {            //ф-ция открытия попапа
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', keyEscHandler);  //слушатель события Закрытия попапа по клику на Esc
+  document.addEventListener('keydown', setKeyEscHandler);  //слушатель события Закрытия попапа по клику на Esc
 };
 buttonAdd.addEventListener('click', () => {    //слушатель события //открыть попап 'Новая карточка'
   openPopup(popupAdd);
@@ -115,21 +115,22 @@ function createCard(obj) {
   const cardNew = new Card(obj, '.card-template');
   const cardElement = cardNew.generateCard();
 
-return cardElement
+  return cardElement
 }
 
 function handleCardFormSubmit(event) {    //заполнение формы и добавление новой карточки на страницу
   event.preventDefault();
-     const obj = {
-      name: popupAddPlace.value,
-      link: popupAddLink.value
-    }
-    
-    const cardElement = createCard(obj);
-    
-    cardsContainer.prepend(cardElement);
+  const obj = {
+    name: popupAddPlace.value,
+    link: popupAddLink.value
+  }
 
-  event.target.reset();       //очистка формы от введённых значений
+  const cardElement = createCard(obj);
+
+  cardsContainer.prepend(cardElement);
+
+  event.target.reset();
+  formValidatorPopupAdd._disableButton();     //очистка формы от введённых значений
   closePopup(popupAdd);
 };
 popupAddForm.addEventListener('submit', handleCardFormSubmit);
