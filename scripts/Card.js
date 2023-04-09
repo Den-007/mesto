@@ -1,14 +1,16 @@
 import { openPopup } from './index.js';
+
 const _popupPhoto = document.querySelector('.popup_image_big');
-console.log(_popupPhoto);
 const _popupPhotoLink = _popupPhoto.querySelector('.popup__big-image');
 const _popupPhotoTitle = _popupPhoto.querySelector('.popup__card-name');
+
 export default class Card {
   constructor(data, templateSelector) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
   }
+
   _getTemplate() {
     const cardElement = document
       .querySelector(this._templateSelector)
@@ -17,7 +19,6 @@ export default class Card {
       .cloneNode(true);
     return cardElement;
   };
-
 
   generateCard() {
     this._element = this._getTemplate();
@@ -29,8 +30,8 @@ export default class Card {
     // Вернём элемент наружу
     return this._element;
   }
-  _setEventListener() {
 
+  _setEventListener() {
     this._buttonLike = this._element.querySelector('.element__like'); //кнопка лайк
     this._buttonDelete = this._element.querySelector('.element__delete'); //кнопка корзина
     //выбор элементов для попапа"большое фото"
@@ -38,27 +39,33 @@ export default class Card {
     this._setButtonDeleteListener();  //вызов метода //удаление карточки
     this._setOpenPopupPhotoListener();  //вызов метода //открыть попап 'Большое фото'
   }
+
   _setButtonDeleteListener() {     // слушатель события удалить карточку
     this._buttonDelete.addEventListener('click', () => {
       this._handleDelete();
     });
   }
+
   _handleDelete() {    //метод удалить карточку
     this._buttonDelete.closest('.element').remove();
   }
+
   _setButtonLikeListener() {     // слушатель события поставить лайк
     this._buttonLike.addEventListener('click', () => {
       this._handleLike();
     });
   }
+
   _handleLike() {             //метод поставить лайк
     this._buttonLike.classList.toggle('element__like_active');
   };
+  
   _setOpenPopupPhotoListener() {  // стушатель попапа Большое фото
     this._cardImage.addEventListener('click', () => {
       this._openPopupPhoto();
     });
   }
+
   _openPopupPhoto() {  // открытие попапа Большое фото
     openPopup(_popupPhoto);
     _popupPhotoLink.src = this._link;

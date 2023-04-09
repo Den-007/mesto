@@ -80,6 +80,7 @@ function openPopup(popup) {            //ф-ция открытия попапа
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', setKeyEscHandler);  //слушатель события Закрытия попапа по клику на Esc
 };
+
 buttonAdd.addEventListener('click', () => {    //слушатель события //открыть попап 'Новая карточка'
   openPopup(popupAdd);
 });
