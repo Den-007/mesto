@@ -142,3 +142,4 @@ initialCards.forEach((item) => {
 });
 
 export { openPopup };
+console.log('Hello, World!')
