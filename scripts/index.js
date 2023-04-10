@@ -131,7 +131,7 @@ function handleCardFormSubmit(event) {    //заполнение формы и �
   cardsContainer.prepend(cardElement);
 
   event.target.reset();
-  formValidatorPopupAdd._disableButton();     //очистка формы от введённых значений
+  formValidatorPopupAdd.disableButton();     //очистка формы от введённых значений
   closePopup(popupAdd);
 };
 popupAddForm.addEventListener('submit', handleCardFormSubmit);

@@ -28,7 +28,7 @@ export default class FormValidator {
     }
   };
 
-  _disableButton = () => { //кнопка не активна 
+  disableButton = () => { //кнопка не активна 
     this._submitButton.setAttribute('disabled', 'true');
     this._submitButton.classList.add(this._options.inactiveButtonClass);
   };
@@ -45,7 +45,7 @@ export default class FormValidator {
         flag += 1;
       }
       else {
-        this._disableButton();
+        this.disableButton();
       }
 
       if (flag === arr.length) {
